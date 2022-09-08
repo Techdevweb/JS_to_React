@@ -1,22 +1,34 @@
+import React, {useRef,useState} from 'react' //Allows to use Referances
 import logo from './logo.svg';
 import './App.css';
+import Webcam from 'react-webcam'//Brings in React's web cam
 
 function App() {
+
+  const webcamRef = useRef(null);
+  const canvasRef = useRef(null);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <Webcam ref={webcamRef}
+            style={{
+              position:'absolute',
+              margin:'auto',
+              textAlign:'center',
+              width: 640,
+              height: 600,
+            }}
+          />
+          <canvas ref={canvasRef}
+            style={{
+              position:'absolute',
+              margin:'auto',
+              textAlign:'center',
+              width: 640,
+              height: 600,
+            }}
+          />
+       
       </header>
     </div>
   );
